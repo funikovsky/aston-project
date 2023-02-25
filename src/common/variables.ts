@@ -1,5 +1,5 @@
-export const _apiBase = 'https://api.giphy.com/v1/gifs/';
-export const _apiKey = 'api_key=KVS44K4aWrFgk2HlOjQrI28PS0KwLBOy';
+export const _apiBase = import.meta.env.VITE_API_BASE;
+export const _apiKey = import.meta.env.VITE_API_KEY;
 
 //Mansory
 

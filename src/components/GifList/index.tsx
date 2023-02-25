@@ -5,10 +5,6 @@ interface Props {
   dataGif: Array<GifItem>;
 }
 
-export const GiftList = ({ dataGif }: Props): JSX.Element => {
-  return (
-    <>
-      <MasonryBlock items={dataGif} />
-    </>
-  );
+export const GiftList = ({ dataGif }: Props) => {
+  return <MasonryBlock items={dataGif} />;
 };
