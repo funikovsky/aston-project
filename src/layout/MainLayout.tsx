@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import { SearchBlock } from '../components/SearchBlock/SearchBlock';
 import { useAppDispatch } from '../hooks/useAppHooks';
 import { getTrendingGifs } from '../redux/slice/asyncThunks/getTrendingGifThunk';
 
@@ -13,6 +14,7 @@ export const MainLayout = () => {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>GIF BASE</h1>
+      <SearchBlock />
       <div>
         <Outlet />
       </div>

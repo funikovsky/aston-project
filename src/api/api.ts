@@ -11,6 +11,15 @@ const getGifTrendingList = async (offSet: string = _offSet) => {
   return res.data;
 };
 
+const getSearchGifList = async (searchParam: string) => {
+  const res: AxiosResponse<ApiResponse> = await apiMain.get(
+    `search?${_apiKey}&q=${searchParam}&limit=25&offset=0&rating=g&lang=en`,
+  );
+
+  return res.data;
+};
+
 export const Api = {
   getGifTrendingList,
+  getSearchGifList,
 };
