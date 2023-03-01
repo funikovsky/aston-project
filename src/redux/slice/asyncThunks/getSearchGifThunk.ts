@@ -4,16 +4,16 @@ import { transformGif } from '../../../utils/utils';
 import { GifItem } from '../../../common/types';
 
 interface ThunkArg {
-  offSet?: string;
+  searchParam: string;
 }
 
-export const getTrendingGifs = createAsyncThunk<
+export const getSearchGifs = createAsyncThunk<
   Array<GifItem>,
-  ThunkArg['offSet'],
+  ThunkArg['searchParam'],
   { rejectValue: string }
->('project/getTrendingGifs', async (offSet, { rejectWithValue }) => {
+>('project/getSearchGifs', async (searchParam, { rejectWithValue }) => {
   try {
-    const { data } = await Api.getGifTrendingList(offSet);
+    const { data } = await Api.getSearchGifList(searchParam);
 
     const transformData: Array<GifItem> = data.map(transformGif);
 

@@ -1,12 +1,16 @@
-import { createSlice, isAnyOf, PayloadAction } from '@reduxjs/toolkit';
-import { getTrendingGifs, GifItem } from './asyncThunks/getTrendingGifThunk';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { getTrendingGifs } from './asyncThunks/getTrendingGifThunk';
+import { getSearchGifs } from './asyncThunks/getSearchGifThunk';
+import { GifItem } from '../../common/types';
 
 interface InitialStateInterface {
-  dataTrendingGif: Array<GifItem>;
+  dataTrendingGifs: Array<GifItem>;
+  dataGifsAfterSearch: Array<GifItem>;
 }
 
 const initialState: InitialStateInterface = {
-  dataTrendingGif: [],
+  dataTrendingGifs: [],
+  dataGifsAfterSearch: [],
 };
 
 export const ProjectSlice = createSlice({
@@ -17,9 +21,16 @@ export const ProjectSlice = createSlice({
     builder
       .addMatcher(isAnyOf(getTrendingGifs.pending), (state, action) => {})
       .addMatcher(isAnyOf(getTrendingGifs.fulfilled), (state, action) => {
-        state.dataTrendingGif = [...action.payload];
+        state.dataTrendingGifs = [...action.payload];
       })
       .addMatcher(isAnyOf(getTrendingGifs.rejected), (state, action) => {
+        console.log('rejected');
+      })
+      .addMatcher(isAnyOf(getSearchGifs.pending), (state, action) => {})
+      .addMatcher(isAnyOf(getSearchGifs.fulfilled), (state, action) => {
+        state.dataGifsAfterSearch = [...action.payload];
+      })
+      .addMatcher(isAnyOf(getSearchGifs.rejected), (state, action) => {
         console.log('rejected');
       });
   },

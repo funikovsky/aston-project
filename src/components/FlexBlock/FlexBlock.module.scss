@@ -1,0 +1,15 @@
+.flex {
+  display: flex;
+  padding: 30px;
+}
+
+.center {
+  justify-content: center;
+}
+
+.end {
+  justify-content: flex-end;
+}
+.start {
+  justify-content: flex-start;
+}
