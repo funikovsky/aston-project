@@ -1,4 +1,4 @@
-import { GifItem } from '../../redux/slice/asyncThunks/getTrendingGifThunk';
+import { GifItem } from '../../common/types';
 import { MasonryBlock } from '../MasonryBlock';
 
 interface Props {

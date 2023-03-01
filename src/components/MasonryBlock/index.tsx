@@ -1,7 +1,7 @@
 import Masonry from 'react-masonry-css';
 
 import { breakpointColumnsObj } from '../../common/variables';
-import { GifItem } from '../../redux/slice/asyncThunks/getTrendingGifThunk';
+import { GifItem } from '../../common/types';
 import { GiftItem } from '../GifItem';
 
 import styles from './Mansory.module.scss';

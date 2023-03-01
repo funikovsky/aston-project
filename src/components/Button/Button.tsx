@@ -10,10 +10,8 @@ interface Props
 
 export const Button = ({ children, className, ...props }: Props) => {
   return (
-    <>
-      <button className={cn(styles.button, className)} {...props}>
-        {children}
-      </button>
-    </>
+    <button className={cn(styles.button, className)} {...props}>
+      {children}
+    </button>
   );
 };

@@ -9,9 +9,5 @@ interface InputProps
 }
 
 export const Input = ({ className, ...props }: InputProps) => {
-  return (
-    <>
-      <input className={cn(styles.input, className)} type="text" {...props} />
-    </>
-  );
+  return <input className={cn(styles.input, className)} type="text" {...props} />;
 };
