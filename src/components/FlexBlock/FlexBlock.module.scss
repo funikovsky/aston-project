@@ -13,3 +13,10 @@
 .start {
   justify-content: flex-start;
 }
+
+.column {
+  flex-direction: column;
+}
+.columngap {
+  column-gap: 20px;
+}

@@ -1,3 +1,4 @@
+//API
 export const _apiBase = import.meta.env.VITE_API_BASE;
 export const _apiKey = import.meta.env.VITE_API_KEY;
 
