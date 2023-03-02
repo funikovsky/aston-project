@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { Input } from '../Input/Input';
 
 import styles from './AuthForm.module.scss';
+import { Button } from '../Button/Button';
 
 type Inputs = {
   email: string;
@@ -58,7 +59,7 @@ export const AuthForm = ({ title, error, handleClick }: Props) => {
           placeholder="Введите пароль"
         />
         {errors.password && <p>{errors.password.message}</p>}
-        <Input type="submit" />
+        <Button>Отправить</Button>
       </form>
     </div>
   );
