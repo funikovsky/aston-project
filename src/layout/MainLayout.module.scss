@@ -13,3 +13,9 @@
   color: var(--main-text-color);
   padding: 10px;
 }
+
+.tag {
+  &:active {
+    transform: scale(0.95);
+  }
+}

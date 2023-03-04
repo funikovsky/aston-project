@@ -1,4 +1,5 @@
 import { GifItem } from '../../common/types';
+import { GiftItem } from '../GifItem';
 import { MasonryBlock } from '../MasonryBlock';
 
 interface Props {
@@ -6,5 +7,11 @@ interface Props {
 }
 
 export const GiftList = ({ dataGif }: Props) => {
-  return <MasonryBlock items={dataGif} />;
+  return (
+    <MasonryBlock>
+      {dataGif.map((itemGif) => (
+        <GiftItem key={itemGif.id} gif={itemGif} />
+      ))}
+    </MasonryBlock>
+  );
 };

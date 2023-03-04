@@ -1,0 +1,14 @@
+.gifblock {
+  position: relative;
+}
+
+.tag {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &:active {
+    transform: translateX(-50%) scale(0.95);
+  }
+}

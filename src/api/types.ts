@@ -9,6 +9,9 @@ export interface GifResponseItem {
 
 export type GifItemList = Array<GifResponseItem>;
 
-export interface ApiResponse {
+export interface ApiResponseGifs {
   data: GifItemList;
+}
+export interface ApiResponseGif {
+  data: GifResponseItem;
 }

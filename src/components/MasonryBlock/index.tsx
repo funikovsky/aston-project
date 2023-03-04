@@ -1,24 +1,20 @@
+import { ReactNode } from 'react';
 import Masonry from 'react-masonry-css';
-
 import { breakpointColumnsObj } from '../../common/variables';
-import { GifItem } from '../../common/types';
-import { GiftItem } from '../GifItem';
 
 import styles from './Mansory.module.scss';
 
 interface Props {
-  items: Array<GifItem>;
+  children: ReactNode;
 }
 
-export const MasonryBlock = ({ items }: Props) => {
+export const MasonryBlock = ({ children }: Props) => {
   return (
     <Masonry
       breakpointCols={breakpointColumnsObj}
       className={styles.my_masonry_grid}
       columnClassName={styles.my_masonry_grid_column}>
-      {items.map((item) => (
-        <GiftItem key={item.id} url={item.url} />
-      ))}
+      {children}
     </Masonry>
   );
 };
