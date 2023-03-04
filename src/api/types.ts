@@ -1,5 +1,8 @@
 export interface GifResponseItem {
   id: string;
+  username: string;
+  title: string;
+  import_datetime: string;
   images: {
     preview_webp: {
       url: string;

@@ -9,8 +9,11 @@ export const GifInfoPage = () => {
   const dispatch = useAppDispatch();
   const gif = useAppSelector((state) => state.project.dataGifItem);
 
+  if (!id) return <div> Страницы не существует</div>;
+
   useEffect(() => {
     dispatch(getGifByIdThunk(id));
   }, []);
-  if (gif) return <GifInfoBlock gif={gif} />;
+
+  return <>{gif ? <GifInfoBlock gif={gif} /> : <div>Информации по данной GIF нет</div>}</>;
 };

@@ -4,7 +4,7 @@ import { transformGif } from '../../../utils/utils';
 import { GifItem } from '../../../common/types';
 
 interface ThunkArg {
-  id?: string;
+  id: string;
 }
 
 export const getGifByIdThunk = createAsyncThunk<GifItem, ThunkArg['id'], { rejectValue: string }>(

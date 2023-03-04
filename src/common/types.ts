@@ -1,5 +1,8 @@
 export interface GifItem {
   id: string;
+  username: string;
+  title: string;
+  import_datetime: string;
   url: string;
 }
 

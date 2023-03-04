@@ -18,7 +18,7 @@ const getSearchGifList = async (searchParam: string) => {
 
   return res.data;
 };
-const getGifById = async (id: string | undefined) => {
+const getGifById = async (id: string) => {
   const res: AxiosResponse<ApiResponseGif> = await apiMain.get(`${id}?${_apiKey}`);
 
   return res.data;
