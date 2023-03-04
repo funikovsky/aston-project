@@ -7,6 +7,8 @@ import { Button } from '../Button/Button';
 import { FlexBlock } from '../FlexBlock/FlexBLock';
 import { Input } from '../Input/Input';
 
+import styles from './SearchBlock.module.scss';
+
 export const SearchBlock = () => {
   const [searchValue, setSearchValue] = useState('');
   const dispatch = useAppDispatch();
@@ -24,7 +26,7 @@ export const SearchBlock = () => {
   };
 
   return (
-    <FlexBlock jc="center">
+    <FlexBlock jc="center" className={styles.container}>
       <Input
         placeholder="Начните поиск "
         value={searchValue}
