@@ -14,9 +14,9 @@ interface Props {
 }
 
 export const GifInfoBlock = ({ gif }: Props) => {
-  const { id } = useAuth();
-  const { isGifInFavorits } = useIsGifInFavorits(id, gif.id);
-  const { addGifToFaforits, removeGifFromFavorits } = useOperationsWithFavorits();
+  const { idOfCurrentUser } = useAuth();
+  const { isGifInFavorits } = useIsGifInFavorits(idOfCurrentUser, gif.id);
+  const { addGifToFavorits, removeGifFromFavorits } = useOperationsWithFavorits();
 
   return (
     <FlexBlock className={styles.container} jc="center">
@@ -27,11 +27,11 @@ export const GifInfoBlock = ({ gif }: Props) => {
         <span>{`Название: ${gif.title}`}</span>
         <span>Автор: {gif.username || 'Не указан'}</span>
         <span>{`Дата создания: ${gif.import_datetime}`}</span>
-        {id && (
+        {idOfCurrentUser && (
           <GifInfoButtons
-            isGif={isGifInFavorits}
-            addGif={() => addGifToFaforits(id, gif.id)}
-            removeGif={() => removeGifFromFavorits(id, gif.id)}
+            isGifInFavorits={isGifInFavorits}
+            addGif={() => addGifToFavorits(idOfCurrentUser, gif.id)}
+            removeGif={() => removeGifFromFavorits(idOfCurrentUser, gif.id)}
           />
         )}
       </FlexBlock>

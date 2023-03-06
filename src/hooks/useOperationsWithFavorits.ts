@@ -4,7 +4,7 @@ import { useAppDispatch } from './useAppHooks';
 export const useOperationsWithFavorits = () => {
   const dispatch = useAppDispatch();
 
-  const addGifToFaforits = (userId: string, gifId: string) => {
+  const addGifToFavorits = (userId: string, gifId: string) => {
     dispatch(addFavoritsId({ userId, gifId }));
   };
 
@@ -13,7 +13,7 @@ export const useOperationsWithFavorits = () => {
   };
 
   return {
-    addGifToFaforits,
+    addGifToFavorits,
     removeGifFromFavorits,
   };
 };

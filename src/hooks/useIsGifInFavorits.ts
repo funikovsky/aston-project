@@ -14,8 +14,8 @@ export const useIsGifInFavorits = (userId: string | null, gifId?: string) => {
   if (userId) {
     dataFavoritsGif = dataFavorits[userId].dataFavoritsGif;
     dataFavoritsId = dataFavorits[userId].favoritsId;
-    dataFavoritsId.length && (isDataFavorits = true);
   }
+  if (userId && dataFavoritsId.length) isDataFavorits = true;
 
   return {
     isGifInFavorits,

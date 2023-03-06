@@ -2,12 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface InitialStateInterface {
   email: string | null;
-  id: string | null;
+  idOfCurrentUser: string | null;
 }
 
 const initialState: InitialStateInterface = {
   email: null,
-  id: null,
+  idOfCurrentUser: null,
 };
 
 export const AuthSlice = createSlice({
@@ -16,11 +16,11 @@ export const AuthSlice = createSlice({
   reducers: {
     setUser(state, action: PayloadAction<InitialStateInterface>) {
       state.email = action.payload.email;
-      state.id = action.payload.id;
+      state.idOfCurrentUser = action.payload.idOfCurrentUser;
     },
     removeUser(state) {
       state.email = null;
-      state.id = null;
+      state.idOfCurrentUser = null;
     },
   },
 });

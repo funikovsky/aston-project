@@ -17,9 +17,9 @@ interface Props {
 
 export const GiftItem = ({ gif }: Props) => {
   const [visibleButton, setVisibleButton] = useState<Boolean>(false);
-  const { addGifToFaforits, removeGifFromFavorits } = useOperationsWithFavorits();
-  const { id } = useAuth();
-  const { isGifInFavorits } = useIsGifInFavorits(id, gif.id);
+  const { addGifToFavorits, removeGifFromFavorits } = useOperationsWithFavorits();
+  const { idOfCurrentUser } = useAuth();
+  const { isGifInFavorits } = useIsGifInFavorits(idOfCurrentUser, gif.id);
 
   const toggleVisibleButton = () => {
     setVisibleButton((prev) => !prev);
@@ -36,12 +36,12 @@ export const GiftItem = ({ gif }: Props) => {
           Подробнее
         </CustomLink>
       )}
-      {visibleButton && id && (
+      {visibleButton && idOfCurrentUser && (
         <div className={styles.btn_container}>
           <GifInfoButtons
-            isGif={isGifInFavorits}
-            addGif={() => addGifToFaforits(id, gif.id)}
-            removeGif={() => removeGifFromFavorits(id, gif.id)}
+            isGifInFavorits={isGifInFavorits}
+            addGif={() => addGifToFavorits(idOfCurrentUser, gif.id)}
+            removeGif={() => removeGifFromFavorits(idOfCurrentUser, gif.id)}
           />
         </div>
       )}

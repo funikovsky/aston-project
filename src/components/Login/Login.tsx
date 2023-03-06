@@ -13,7 +13,7 @@ export const Login = () => {
         dispatch(
           setUser({
             email: user.email,
-            id: user.uid,
+            idOfCurrentUser: user.uid,
           }),
         );
         navigate('/');

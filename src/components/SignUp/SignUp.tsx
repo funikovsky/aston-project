@@ -15,7 +15,7 @@ export const SignUp = () => {
         dispatch(
           setUser({
             email: user.email,
-            id: user.uid,
+            idOfCurrentUser: user.uid,
           }),
         );
         if (!dataBase[user.uid]) {
