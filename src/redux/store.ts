@@ -12,10 +12,12 @@ import {
 import storage from 'redux-persist/lib/storage';
 import projectSlice from './slice/projectSlice';
 import authSlice from './slice/authSlice';
+import dataBaseSlice from './slice/dataBaseSlice';
 
 const rootReducer = combineReducers({
   project: projectSlice,
   authSlice: authSlice,
+  dataBase: dataBaseSlice,
 });
 
 const persistConfig = {

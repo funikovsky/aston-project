@@ -5,6 +5,7 @@ import { UserInfo } from './UserInfo/UserInfo';
 import { UserRegistration } from './UserRegistration/UserRegistaration';
 
 import styles from './UserEnterBlock.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   isAuth: boolean;
@@ -13,8 +14,10 @@ interface Props {
 
 export const UserEnterBlock = ({ isAuth, email }: Props) => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const handleRemoveUser = () => {
     dispatch(removeUser());
+    navigate('/');
   };
   return (
     <FlexBlock jc="end" cgap20 className={styles.container}>

@@ -1,4 +1,4 @@
-import { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { apiMain } from './config';
 import { ApiResponseGif, ApiResponseGifs } from './types';
 import { _apiKey, _offSet } from '../common/variables';
@@ -23,8 +23,20 @@ const getGifById = async (id: string) => {
 
   return res.data;
 };
+
+const getGifsByIds = async (ids: Array<string>) => {
+  const idsToString = ids.join('%2C+');
+
+  const res: AxiosResponse<ApiResponseGifs> = await axios.get(
+    `https://api.giphy.com/v1/gifs?${_apiKey}&ids=${idsToString}`,
+  );
+
+  return res.data;
+};
+
 export const Api = {
   getGifTrendingList,
   getSearchGifList,
   getGifById,
+  getGifsByIds,
 };
