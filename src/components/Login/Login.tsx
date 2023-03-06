@@ -5,6 +5,7 @@ import { useLoginAndSignHook } from '../../hooks/useLoginAndSignHook';
 
 export const Login = () => {
   const { dispatch, navigate, firebaseError, setFireBaseError } = useLoginAndSignHook();
+
   const handleLogin = (email: string, password: string) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
@@ -12,7 +13,7 @@ export const Login = () => {
         dispatch(
           setUser({
             email: user.email,
-            id: user.uid,
+            idOfCurrentUser: user.uid,
           }),
         );
         navigate('/');

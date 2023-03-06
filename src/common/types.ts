@@ -12,3 +12,11 @@ export enum ErrorEnum {
   userNotFound = 'auth/user-not-found',
   passwordWrong = 'auth/wrong-password',
 }
+
+export interface DataBase {
+  [key: string]: {
+    history: Array<GifItem>;
+    favoritsId: Array<string>;
+    dataFavoritsGif: Array<GifItem>;
+  };
+}
