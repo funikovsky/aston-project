@@ -12,6 +12,7 @@ export const UserInfo = ({ email, handleClick }: Props) => {
       <span>Вы вошли как {email} </span>
       <div>
         <CustomLink href={'/favorits'}>Избранное</CustomLink>
+        <CustomLink href={'./history'}>История</CustomLink>
         <Button onClick={handleClick}>Выйти</Button>
       </div>
     </div>
