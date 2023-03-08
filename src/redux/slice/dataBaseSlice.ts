@@ -11,6 +11,10 @@ interface AddfavoritsIdProps {
   userId: string;
   gifId: string;
 }
+interface HistoryActionProps {
+  idOfCurrentUser: string;
+  searchValue: string;
+}
 
 const initialState: InitialStateInterface = {
   dataBase: {},
@@ -41,6 +45,17 @@ export const DataBaseSlice = createSlice({
       userDataBase.favoritsId = Array.from(set);
       if (userDataBase.favoritsId.length === 0) userDataBase.dataFavoritsGif = [];
     },
+    addSearchParamToHistory: (state, action: PayloadAction<HistoryActionProps>) => {
+      const userId = action.payload.idOfCurrentUser;
+      const searchParam = action.payload.searchValue;
+      const userDataBase = state.dataBase[userId];
+      userDataBase.history = [...userDataBase.history, searchParam];
+    },
+    removeHistory: (state, action: PayloadAction<string>) => {
+      const userId = action.payload;
+      const userDataBase = state.dataBase[userId];
+      userDataBase.history = [];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -56,5 +71,11 @@ export const DataBaseSlice = createSlice({
   },
 });
 
-export const { addUserToDataBase, addFavoritsId, removeFavoritsId } = DataBaseSlice.actions;
+export const {
+  addUserToDataBase,
+  addFavoritsId,
+  removeFavoritsId,
+  addSearchParamToHistory,
+  removeHistory,
+} = DataBaseSlice.actions;
 export default DataBaseSlice.reducer;

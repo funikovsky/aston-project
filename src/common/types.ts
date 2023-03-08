@@ -15,7 +15,7 @@ export enum ErrorEnum {
 
 export interface DataBase {
   [key: string]: {
-    history: Array<GifItem>;
+    history: Array<string>;
     favoritsId: Array<string>;
     dataFavoritsGif: Array<GifItem>;
   };

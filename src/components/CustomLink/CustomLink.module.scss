@@ -15,4 +15,7 @@
     display: block;
     padding: 5px;
   }
+  &:active {
+    transform: scale(0.95);
+  }
 }
