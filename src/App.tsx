@@ -9,7 +9,7 @@ import { LoginPage } from './pages/LoginPage';
 import { HistoryPage } from './pages/HistoryPage';
 import { TrendingGifPage } from './pages/TrendingGifPage';
 import { ListOfGifsFromHistory } from './components/ListOfGifsFromHistory/ListOfGifsFromHistory';
-import { PrivateAccessHoc } from './hoc/PrivateAccessHoc';
+import { PrivateAccess } from './hoc/PrivateAccess';
 import { ErrorNotFound } from './components/ErrorNotFound/ErrorNotFound';
 
 function App() {
@@ -25,17 +25,17 @@ function App() {
         <Route
           path="/favorits"
           element={
-            <PrivateAccessHoc>
+            <PrivateAccess>
               <FavoritsPage />
-            </PrivateAccessHoc>
+            </PrivateAccess>
           }
         />
         <Route
           path="/history"
           element={
-            <PrivateAccessHoc>
+            <PrivateAccess>
               <HistoryPage />
-            </PrivateAccessHoc>
+            </PrivateAccess>
           }>
           <Route path="/history:searchParam" element={<ListOfGifsFromHistory />} />
         </Route>

@@ -5,7 +5,7 @@ interface Props {
   children: JSX.Element;
 }
 
-export const PrivateAccessHoc = ({ children }: Props) => {
+export const PrivateAccess = ({ children }: Props) => {
   const { idOfCurrentUser } = useAuth();
 
   if (!idOfCurrentUser) {
