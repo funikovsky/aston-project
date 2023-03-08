@@ -9,6 +9,8 @@ import { LoginPage } from './pages/LoginPage';
 import { HistoryPage } from './pages/HistoryPage';
 import { TrendingGifPage } from './pages/TrendingGifPage';
 import { ListOfGifsFromHistory } from './components/ListOfGifsFromHistory/ListOfGifsFromHistory';
+import { PrivateAccessHoc } from './hoc/PrivateAccessHoc';
+import { ErrorNotFound } from './components/ErrorNotFound/ErrorNotFound';
 
 function App() {
   return (
@@ -19,12 +21,25 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/registration" element={<SignUp />} />
         <Route path="/gifs/:id" element={<GifInfoPage />} />
-        <Route path="/favorits" element={<FavoritsPage />} />
-        <Route path="/history" element={<HistoryPage />}>
+
+        <Route
+          path="/favorits"
+          element={
+            <PrivateAccessHoc>
+              <FavoritsPage />
+            </PrivateAccessHoc>
+          }
+        />
+        <Route
+          path="/history"
+          element={
+            <PrivateAccessHoc>
+              <HistoryPage />
+            </PrivateAccessHoc>
+          }>
           <Route path="/history:searchParam" element={<ListOfGifsFromHistory />} />
         </Route>
-
-        <Route path="*" element={<div> Страница не найдена(!!в разработке!!)</div>} />
+        <Route path="*" element={<ErrorNotFound />} />
       </Route>
     </Routes>
   );
