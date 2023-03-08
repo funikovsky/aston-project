@@ -63,9 +63,7 @@ export const DataBaseSlice = createSlice({
         console.log(action.type);
       })
       .addMatcher(isAnyOf(getGifsByIdsThunk.fulfilled), (state, action) => {
-        console.log(action.payload.transformData);
         state.dataBase[action.payload.userId].dataFavoritsGif = [...action.payload.transformData];
-        console.log('fulfield');
       })
       .addMatcher(isAnyOf(getGifsByIdsThunk.rejected), (state, action) => {
         console.error(action.type);

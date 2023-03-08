@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/useAppHooks';
 import { useAuth } from '../../hooks/useAuth';
 import { removeHistory } from '../../redux/slice/dataBaseSlice';
@@ -9,8 +10,10 @@ import styles from './SearchParamList.module.scss';
 
 export const SearchParamList = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const removeUserHistory = (userId: string) => {
     dispatch(removeHistory(userId));
+    navigate('/history');
   };
   const { idOfCurrentUser } = useAuth();
   if (idOfCurrentUser) {

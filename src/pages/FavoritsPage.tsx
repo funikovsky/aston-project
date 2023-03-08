@@ -12,20 +12,19 @@ export const FavoritsPage = () => {
   const { isDataFavorits, dataFavoritsId, dataFavoritsGif } = useIsGifInFavorits(idOfCurrentUser);
 
   useEffect(() => {
-    if (!isDataFavorits) {
-      console.log(isDataFavorits);
-      return;
-    }
+    if (!isDataFavorits) return;
     if (idOfCurrentUser)
       dispatch(getGifsByIdsThunk({ ids: dataFavoritsId, userId: idOfCurrentUser }));
   }, [dataFavoritsId]);
 
-  if (!dataFavoritsId.length) return <div>На данный момент в избранное ничего не добавлено</div>;
-
   return (
     <div>
       <h2>ИЗБРАННОЕ</h2>
-      <GiftList dataGif={dataFavoritsGif} />
+      {dataFavoritsId.length ? (
+        <GiftList dataGif={dataFavoritsGif} />
+      ) : (
+        <div>На данный момент в избранное ничего не добавлено</div>
+      )}
     </div>
   );
 };

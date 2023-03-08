@@ -1,4 +1,5 @@
 import { ApiResponseGifs, GifResponseItem } from '../api/types';
+import { GifItem } from '../common/types';
 
 export const transformGif = (gifResponseItem: GifResponseItem) => ({
   id: gifResponseItem.id,
@@ -8,7 +9,7 @@ export const transformGif = (gifResponseItem: GifResponseItem) => ({
   url: gifResponseItem.images.preview_webp?.url,
 });
 
-export const transformResponseData = (data: ApiResponseGifs) => {
+export const transformResponseData = (data: ApiResponseGifs): Array<GifItem> => {
   return data.data.map(transformGif);
 };
 

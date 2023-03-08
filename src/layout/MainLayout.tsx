@@ -31,7 +31,7 @@ export const MainLayout = () => {
           )}
         </div>
 
-        <h1 className={styles.title}>GIF BASE</h1>
+        <h1 className={styles.title}>GIFS</h1>
         <UserEnterBlock isAuth={isAuth} email={email} />
       </FlexBlock>
       <SearchBlock />
