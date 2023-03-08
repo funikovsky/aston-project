@@ -12,8 +12,7 @@ export const FavoritsPage = () => {
   const { isDataFavorits, dataFavoritsId, dataFavoritsGif } = useIsGifInFavorits(idOfCurrentUser);
 
   useEffect(() => {
-    if (!isDataFavorits) return;
-    if (idOfCurrentUser)
+    if (idOfCurrentUser && isDataFavorits)
       dispatch(getGifsByIdsThunk({ ids: dataFavoritsId, userId: idOfCurrentUser }));
   }, [dataFavoritsId]);
 

@@ -1,0 +1,11 @@
+.wrapper {
+  padding: 20px 0;
+}
+
+.container {
+  width: 100px;
+  margin: 20px auto;
+  & svg {
+    width: 100%;
+  }
+}
