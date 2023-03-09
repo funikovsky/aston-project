@@ -20,3 +20,5 @@ export interface DataBase {
     dataFavoritsGif: Array<GifItem>;
   };
 }
+
+export type Status = 'loading' | 'error' | 'fulfilled';

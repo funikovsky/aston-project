@@ -3,6 +3,7 @@ import { getTrendingGifs } from './asyncThunks/getTrendingGifThunk';
 import { getSearchGifs } from './asyncThunks/getSearchGifThunk';
 import { GifItem } from '../../common/types';
 import { getGifByIdThunk } from './asyncThunks/getGifById';
+import { GiftItem } from '../../components/GifItem';
 
 interface InitialStateInterface {
   dataTrendingGifs: Array<GifItem>;
@@ -19,7 +20,11 @@ const initialState: InitialStateInterface = {
 export const ProjectSlice = createSlice({
   name: 'project',
   initialState,
-  reducers: {},
+  reducers: {
+    removeDataGifItem: (state) => {
+      state.dataGifItem = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addMatcher(isAnyOf(getTrendingGifs.pending), (state, action) => {
@@ -52,5 +57,5 @@ export const ProjectSlice = createSlice({
   },
 });
 
-export const {} = ProjectSlice.actions;
+export const { removeDataGifItem } = ProjectSlice.actions;
 export default ProjectSlice.reducer;
