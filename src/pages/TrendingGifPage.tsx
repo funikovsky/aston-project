@@ -1,5 +1,6 @@
 import { useAppSelector } from '../hooks/useAppHooks';
 import { GiftList } from '../components/GifList';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 export const TrendingGifPage = () => {
   const dataTrendingGif = useAppSelector((state) => state.project.dataTrendingGifs);
@@ -7,7 +8,9 @@ export const TrendingGifPage = () => {
   return (
     <>
       <h2>ТОП GIFS</h2>
-      <GiftList dataGif={dataTrendingGif} />;
+      <ErrorBoundary>
+        <GiftList dataGif={dataTrendingGif} />;
+      </ErrorBoundary>
     </>
   );
 };
