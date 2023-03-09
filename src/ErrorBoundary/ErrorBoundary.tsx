@@ -1,5 +1,5 @@
 import { Component, ErrorInfo, ReactNode } from 'react';
-import { ErrorIfo } from './ErrorInfo';
+import { ErrorInfoBlock } from './ErrorInfoBlock';
 
 interface Props {
   children: ReactNode;
@@ -29,7 +29,7 @@ class ErrorBoundary extends Component<Props, State> {
       return (
         <div>
           <h1>Произошла непредвиденная ошибка! </h1>
-          {this.state.errorInfo && <ErrorIfo errorInfoContent={this.state.errorInfo} />}
+          {this.state.errorInfo && <ErrorInfoBlock errorInfoContent={this.state.errorInfo} />}
         </div>
       );
     }

@@ -5,7 +5,7 @@ const ComponentPropTypes = {
 };
 type ComponentTypes = InferProps<typeof ComponentPropTypes>;
 
-export const ErrorIfo = ({ errorInfoContent }: ComponentTypes) => {
+export const ErrorInfoBlock = ({ errorInfoContent }: ComponentTypes) => {
   return (
     <div>
       <h2>Ознакомиться с ошибкой можно открыв вкладку "Сведения"</h2>
@@ -14,4 +14,4 @@ export const ErrorIfo = ({ errorInfoContent }: ComponentTypes) => {
   );
 };
 
-ErrorIfo.propTypes = ComponentPropTypes;
+ErrorInfoBlock.propTypes = ComponentPropTypes;
