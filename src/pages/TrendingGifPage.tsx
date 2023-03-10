@@ -9,7 +9,7 @@ export const TrendingGifPage = () => {
     <>
       <h2>ТОП GIFS</h2>
       <ErrorBoundary>
-        <GiftList dataGif={dataTrendingGif} />;
+        <GiftList dataGif={dataTrendingGif} />
       </ErrorBoundary>
     </>
   );

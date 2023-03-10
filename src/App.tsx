@@ -1,23 +1,43 @@
+import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { SignUp } from './components/SignUp/SignUp';
-
-import { MainLayout } from './layout/MainLayout';
 import { FavoritsPage } from './pages/FavoritsPage';
-import { FoundGifsPage } from './pages/FoundGifsPage';
 import { GifInfoPage } from './pages/GifInfoPage';
 import { LoginPage } from './pages/LoginPage';
 import { HistoryPage } from './pages/HistoryPage';
-import { TrendingGifPage } from './pages/TrendingGifPage';
 import { ListOfGifsFromHistory } from './components/ListOfGifsFromHistory/ListOfGifsFromHistory';
 import { PrivateAccess } from './hoc/PrivateAccess';
 import { ErrorNotFound } from './components/ErrorNotFound/ErrorNotFound';
+import { Spinner } from './components/Spinner/Spinner';
+import { FoundGifsLazy, MainLayoutLazy, TrendingGifLazy } from './lazy/lazy';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<TrendingGifPage />} />
-        <Route path="/search" element={<FoundGifsPage />} />
+      <Route
+        path="/"
+        element={
+          <Suspense fallback={<Spinner />}>
+            <MainLayoutLazy />
+          </Suspense>
+        }>
+        <Route
+          index
+          element={
+            <Suspense fallback={<Spinner />}>
+              <TrendingGifLazy />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <Suspense fallback={<Spinner />}>
+              <FoundGifsLazy />
+            </Suspense>
+          }
+        />
+
         <Route path="/login" element={<LoginPage />} />
         <Route path="/registration" element={<SignUp />} />
         <Route path="/gifs/:id" element={<GifInfoPage />} />

@@ -15,6 +15,7 @@ import authSlice from './slice/authSlice';
 import dataBaseSlice from './slice/dataBaseSlice';
 import { searchGifsApi } from './query/searchGifsQuery';
 import { setupListeners } from '@reduxjs/toolkit/query';
+import { loggerMiddleware } from './middleware/loggerMiddleware';
 
 const rootReducer = combineReducers({
   project: projectSlice,
@@ -38,7 +39,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(searchGifsApi.middleware),
+    }).concat(searchGifsApi.middleware, loggerMiddleware),
 });
 setupListeners(store.dispatch);
 export const persistor = persistStore(store);
