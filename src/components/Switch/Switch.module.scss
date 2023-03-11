@@ -1,0 +1,67 @@
+.switch {
+  position: absolute;
+  top: -999999px;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch + label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.switch + label::before {
+  content: '';
+  width: 40px;
+  height: 20px;
+  border-radius: 1rem;
+  background-color: black;
+  transition: background-color 0.2s;
+}
+
+.switch:focus + label::before {
+  border: thin solid var(--main-text-color);
+  transition: background-color 0.2s;
+}
+
+.switch:focus:checked + label::before {
+  border: thin solid red;
+  transition: background-color 0.2s;
+}
+
+.switch + label::after {
+  position: absolute;
+  left: 2px;
+  content: '';
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 100%;
+  background-color: gray;
+  transition: left 0.2s, background-color 0.2s;
+}
+
+.switch:checked + label::before {
+  background-color: gray;
+}
+
+.switch:checked + label::after {
+  left: 25px;
+  background-color: black;
+}
+
+.switch:disabled + label::before {
+  background-color: #ccc;
+}
+
+.switch:disabled + label::after {
+  background-color: #aaa;
+}
+
+.switch:disabled + label {
+  color: #ccc;
+  cursor: default;
+}

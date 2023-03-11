@@ -18,4 +18,11 @@
   &:active {
     transform: scale(0.95);
   }
+  &.dark {
+    background: gray;
+
+    & a {
+      color: black;
+    }
+  }
 }
