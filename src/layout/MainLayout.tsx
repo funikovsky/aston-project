@@ -27,7 +27,7 @@ export const MainLayout = () => {
   return (
     <div
       className={cn(styles.wrapper, {
-        [styles.dark]: themeContext?.theme == 'dark',
+        [styles.dark]: themeContext?.theme === 'dark',
       })}>
       <FlexBlock className={styles.header}>
         <FlexBlock className={styles.btnblock}>
@@ -36,10 +36,8 @@ export const MainLayout = () => {
               На главную
             </CustomLink>
           )}
-
           <Switch onChange={themeContext?.toggleTheme} />
         </FlexBlock>
-
         <h1 className={styles.title}>GIFS</h1>
         <UserEnterBlock isAuth={isAuth} email={email} />
       </FlexBlock>
