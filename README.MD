@@ -1,4 +1,4 @@
-# Gifs App
+# Gifs App - приложение для просмотра gif-картинок
 
 ## **1 уровень (необходимый минимум)**
 
@@ -15,7 +15,7 @@
 - Есть хотя бы один кастомный хук: ✔️ [useOperationsWithFavorits](https://github.com/funikovsky/aston-project/blob/main/src/hooks/useOperationsWithFavorits.ts), [Все хуки проекта](https://github.com/funikovsky/aston-project/tree/main/src/hooks)
 - Хотя бы несколько компонентов используют PropTypes: ✔️ [ErrorInfoBlock](https://github.com/funikovsky/aston-project/blob/main/src/ErrorBoundary/ErrorInfoBlock.tsx)
 - Поиск не должен триггерить много запросов к серверу: ✔️ [Поиск при нажатии кнопки или 'Enter'](https://github.com/funikovsky/aston-project/blob/main/src/components/SearchBlock/SearchBlock.tsx)
-- Есть применение lazy + Suspense: ✔️ [App](https://github.com/funikovsky/aston-project/blob/main/src/App.tsx)
+- Есть применение lazy + Suspense: ✔️[lazy](https://github.com/funikovsky/aston-project/blob/main/src/lazy/lazy.ts) + [Suspense](https://github.com/funikovsky/aston-project/blob/main/src/App.tsx)
 
 ## Redux
 
