@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { GifInfoBlock } from '../components/GifInfoBlock/GifInfoBlock';
+import { TelegramProvider } from '../hoc/TelegramProvider';
 import { useAppDispatch, useAppSelector } from '../hooks/useAppHooks';
 import { getGifByIdThunk } from '../redux/slice/asyncThunks/getGifById';
 import { removeDataGifItem } from '../redux/slice/projectSlice';
@@ -17,5 +18,11 @@ export const GifInfoPage = () => {
     dispatch(getGifByIdThunk(id));
   }, []);
 
-  return gifItem ? <GifInfoBlock gif={gifItem} /> : <div>...Загрузка</div>;
+  return gifItem ? (
+    <TelegramProvider>
+      <GifInfoBlock gif={gifItem} />
+    </TelegramProvider>
+  ) : (
+    <div>...Загрузка</div>
+  );
 };
