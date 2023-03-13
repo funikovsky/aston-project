@@ -28,6 +28,6 @@
 ## **2 уровень (необязательный)**
 
 - Использование TypeScript: ✔️
-- Используются мемоизированные селекторы (createSelector): ✔️
-- Подключен storybook и созданы несколько сторисов:
-- Реализована фича “Поделиться в телеграм”, закрытая под фича флагом: ✔️
+- Используются мемоизированные селекторы (createSelector): ✔️ [dataBaseSelector](https://github.com/funikovsky/aston-project/blob/main/src/redux/slice/selectors/dataBaseSelectors.ts)
+- Подключен storybook и созданы несколько сторисов: ✔️
+- Реализована фича “Поделиться в телеграм”, закрытая под фича флагом: ✔️ [Сервер](https://github.com/funikovsky/aston-project/blob/main/server/index.js), [Компонент с кнопкой](https://github.com/funikovsky/aston-project/blob/main/src/components/GifInfoBlock/GifInfoBlock.tsx), [FeatureFlagContext](https://github.com/funikovsky/aston-project/blob/main/src/hoc/FeatureFlagProvider.tsx)
