@@ -1,5 +1,11 @@
 # Gifs App - приложение для просмотра gif-картинок
 
+## **Commands**:
+
+- npm run dev (frontend)
+- npm run server (for FeatureFlag)
+- npm run storybook (storybook)
+
 ## **1 уровень (необходимый минимум)**
 
 - Реализованы Требования к функциональности, описанные в прикрепленном документе: ✔️
