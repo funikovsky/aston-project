@@ -20,7 +20,7 @@ export const GifInfoBlock = ({ gif }: Props) => {
   const { idOfCurrentUser } = useAuth();
   const { isGifInFavorits } = useIsGifInFavorits(idOfCurrentUser, gif.id);
   const { addGifToFavorits, removeGifFromFavorits } = useOperationsWithFavorits();
-  const telegramContext = useContext(FeatureFlagContext);
+  const featureFlagContext = useContext(FeatureFlagContext);
 
   return (
     <FlexBlock className={styles.container} jc="center">
@@ -38,8 +38,10 @@ export const GifInfoBlock = ({ gif }: Props) => {
             removeGif={() => removeGifFromFavorits(idOfCurrentUser, gif.id)}
           />
         )}
-        {telegramContext?.isFeatureFlag && (
-          <CustomLink target="_blank" href={`https://t.me/share/url?url=${gif.url}`}>
+        {featureFlagContext?.isFeatureFlag && (
+          <CustomLink
+            target="_blank"
+            href={`https://t.me/share/url?url=${gif.url}&text=Смотри что я нашел ))`}>
             Поделиться в Telegram
           </CustomLink>
         )}
