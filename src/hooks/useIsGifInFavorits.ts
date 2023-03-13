@@ -1,8 +1,9 @@
 import { GifItem } from '../common/types';
+import { dataBaseSelector } from '../redux/slice/selectors/dataBaseSelectors';
 import { useAppSelector } from './useAppHooks';
 
 export const useIsGifInFavorits = (userId: string | null, gifId?: string) => {
-  const dataFavorits = useAppSelector((state) => state.dataBase.dataBase);
+  const dataFavorits = useAppSelector(dataBaseSelector);
   let isGifInFavorits = false;
   let dataFavoritsId: Array<string> = [];
   let isDataFavorits = false;

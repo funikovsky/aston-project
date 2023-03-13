@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/useAppHooks';
 import { useAuth } from '../../hooks/useAuth';
 import { removeHistory } from '../../redux/slice/dataBaseSlice';
+import { dataBaseSelector } from '../../redux/slice/selectors/dataBaseSelectors';
 import { Button } from '../Button/Button';
 import { FlexBlock } from '../FlexBlock/FlexBLock';
 import { SearchParamItem } from './SearchParamItem/SearchParamItem';
@@ -17,7 +18,7 @@ export const SearchParamList = () => {
   };
   const { idOfCurrentUser } = useAuth();
   if (idOfCurrentUser) {
-    const dataBase = useAppSelector((state) => state.dataBase.dataBase);
+    const dataBase = useAppSelector(dataBaseSelector);
     let searchHistoryOfUser = dataBase[idOfCurrentUser].history;
 
     return (

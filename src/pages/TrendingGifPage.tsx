@@ -1,9 +1,10 @@
 import { useAppSelector } from '../hooks/useAppHooks';
 import { GiftList } from '../components/GifList';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import { dataGifsOfTrendingSelector } from '../redux/slice/selectors/dataGifsSelectors';
 
 export const TrendingGifPage = () => {
-  const dataTrendingGif = useAppSelector((state) => state.project.dataTrendingGifs);
+  const dataTrendingGif = useAppSelector(dataGifsOfTrendingSelector);
 
   return (
     <>

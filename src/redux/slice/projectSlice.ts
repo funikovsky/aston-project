@@ -3,7 +3,6 @@ import { getTrendingGifs } from './asyncThunks/getTrendingGifThunk';
 import { getSearchGifs } from './asyncThunks/getSearchGifThunk';
 import { GifItem } from '../../common/types';
 import { getGifByIdThunk } from './asyncThunks/getGifById';
-import { GiftItem } from '../../components/GifItem';
 
 interface InitialStateInterface {
   dataTrendingGifs: Array<GifItem>;

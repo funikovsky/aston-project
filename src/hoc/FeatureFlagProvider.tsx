@@ -8,9 +8,9 @@ interface Props {
   children: JSX.Element;
 }
 
-export const TelegramContext = createContext<ContextProps | null>(null);
+export const FeatureFlagContext = createContext<ContextProps | null>(null);
 
-export const TelegramProvider = ({ children }: Props) => {
+export const FeatureFlagProvider = ({ children }: Props) => {
   const [isFeatureFlag, setisFeatureFlag] = useState(false);
 
   useEffect(() => {
@@ -21,5 +21,5 @@ export const TelegramProvider = ({ children }: Props) => {
 
   const value = { isFeatureFlag };
 
-  return <TelegramContext.Provider value={value}>{children}</TelegramContext.Provider>;
+  return <FeatureFlagContext.Provider value={value}>{children}</FeatureFlagContext.Provider>;
 };

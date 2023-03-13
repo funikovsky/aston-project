@@ -8,7 +8,7 @@ import { ImageContainer } from '../ImageContainer/ImageContainer';
 import { GifInfoButtons } from './GifInfoButtons/GifInfoButtons';
 
 import styles from './GifInfoBlock.module.scss';
-import { TelegramContext } from '../../hoc/TelegramProvider';
+import { FeatureFlagContext } from '../../hoc/FeatureFlagProvider';
 import { useContext } from 'react';
 import { CustomLink } from '../CustomLink/CustomLink';
 
@@ -20,7 +20,7 @@ export const GifInfoBlock = ({ gif }: Props) => {
   const { idOfCurrentUser } = useAuth();
   const { isGifInFavorits } = useIsGifInFavorits(idOfCurrentUser, gif.id);
   const { addGifToFavorits, removeGifFromFavorits } = useOperationsWithFavorits();
-  const telegramContext = useContext(TelegramContext);
+  const telegramContext = useContext(FeatureFlagContext);
 
   return (
     <FlexBlock className={styles.container} jc="center">

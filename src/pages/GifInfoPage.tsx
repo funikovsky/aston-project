@@ -1,15 +1,16 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { GifInfoBlock } from '../components/GifInfoBlock/GifInfoBlock';
-import { TelegramProvider } from '../hoc/TelegramProvider';
+import { FeatureFlagProvider } from '../hoc/FeatureFlagProvider';
 import { useAppDispatch, useAppSelector } from '../hooks/useAppHooks';
 import { getGifByIdThunk } from '../redux/slice/asyncThunks/getGifById';
 import { removeDataGifItem } from '../redux/slice/projectSlice';
+import { dataGifItemSelector } from '../redux/slice/selectors/dataGifsSelectors';
 
 export const GifInfoPage = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const gifItem = useAppSelector((state) => state.project.dataGifItem);
+  const gifItem = useAppSelector(dataGifItemSelector);
 
   if (!id) return <div> Страницы не существует</div>;
 
@@ -19,9 +20,9 @@ export const GifInfoPage = () => {
   }, []);
 
   return gifItem ? (
-    <TelegramProvider>
+    <FeatureFlagProvider>
       <GifInfoBlock gif={gifItem} />
-    </TelegramProvider>
+    </FeatureFlagProvider>
   ) : (
     <div>...Загрузка</div>
   );
