@@ -8,6 +8,9 @@ import { ImageContainer } from '../ImageContainer/ImageContainer';
 import { GifInfoButtons } from './GifInfoButtons/GifInfoButtons';
 
 import styles from './GifInfoBlock.module.scss';
+import { FeatureFlagContext } from '../../hoc/FeatureFlagProvider';
+import { useContext } from 'react';
+import { CustomLink } from '../CustomLink/CustomLink';
 
 interface Props {
   gif: GifItem;
@@ -17,6 +20,7 @@ export const GifInfoBlock = ({ gif }: Props) => {
   const { idOfCurrentUser } = useAuth();
   const { isGifInFavorits } = useIsGifInFavorits(idOfCurrentUser, gif.id);
   const { addGifToFavorits, removeGifFromFavorits } = useOperationsWithFavorits();
+  const telegramContext = useContext(FeatureFlagContext);
 
   return (
     <FlexBlock className={styles.container} jc="center">
@@ -33,6 +37,11 @@ export const GifInfoBlock = ({ gif }: Props) => {
             addGif={() => addGifToFavorits(idOfCurrentUser, gif.id)}
             removeGif={() => removeGifFromFavorits(idOfCurrentUser, gif.id)}
           />
+        )}
+        {telegramContext?.isFeatureFlag && (
+          <CustomLink target="_blank" href={`https://t.me/share/url?url=${gif.url}`}>
+            Поделиться в Telegram
+          </CustomLink>
         )}
       </FlexBlock>
     </FlexBlock>

@@ -43,7 +43,6 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/registration" element={<SignUp />} />
           <Route path="/gifs/:id" element={<GifInfoPage />} />
-
           <Route
             path="/favorits"
             element={

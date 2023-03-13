@@ -4,10 +4,11 @@ import { setUser } from '../../redux/slice/authSlice';
 import { useLoginAndSignHook } from '../../hooks/useLoginAndSignHook';
 import { useAppSelector } from '../../hooks/useAppHooks';
 import { addUserToDataBase } from '../../redux/slice/dataBaseSlice';
+import { dataBaseSelector } from '../../redux/slice/selectors/dataBaseSelectors';
 
 export const Login = () => {
   const { dispatch, navigate, firebaseError, setFireBaseError } = useLoginAndSignHook();
-  const dataBase = useAppSelector((state) => state.dataBase.dataBase);
+  const dataBase = useAppSelector(dataBaseSelector);
 
   const handleLogin = (email: string, password: string) => {
     const auth = getAuth();

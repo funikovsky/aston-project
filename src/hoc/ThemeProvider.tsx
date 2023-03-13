@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import { _apiLocal } from '../common/variables';
 
 interface ContextProps {
   theme: string;

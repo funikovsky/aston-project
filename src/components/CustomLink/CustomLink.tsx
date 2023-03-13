@@ -8,9 +8,10 @@ import { ThemeContext } from '../../hoc/ThemeProvider';
 export interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   children: ReactNode;
   href: string;
+  target?: string;
 }
 
-export const CustomLink = ({ children, href, className, ...props }: Props) => {
+export const CustomLink = ({ children, href, target, className, ...props }: Props) => {
   const themeContext = useContext(ThemeContext);
   return (
     <div
@@ -23,7 +24,9 @@ export const CustomLink = ({ children, href, className, ...props }: Props) => {
         },
         { ...props },
       )}>
-      <Link to={href}>{children}</Link>
+      <Link target={target} to={href}>
+        {children}
+      </Link>
     </div>
   );
 };
