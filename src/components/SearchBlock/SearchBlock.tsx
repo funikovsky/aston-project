@@ -2,6 +2,7 @@ import { useState, KeyboardEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../hooks/useAppHooks';
 import { useAuth } from '../../hooks/useAuth';
+import { format } from 'date-fns';
 
 import { getSearchGifs } from '../../redux/slice/asyncThunks/getSearchGifThunk';
 import { addSearchParamToHistory } from '../../redux/slice/dataBaseSlice';
@@ -22,7 +23,13 @@ export const SearchBlock = () => {
     dispatch(getSearchGifs(searchValue));
 
     if (idOfCurrentUser) {
-      dispatch(addSearchParamToHistory({ idOfCurrentUser, searchValue }));
+      const createDate = new Date();
+      const calendarDateFormat = 'dd.MM.yy H:m';
+      const searchingItemobj = {
+        searchValue,
+        dataOfSearch: format(createDate, calendarDateFormat),
+      };
+      dispatch(addSearchParamToHistory({ idOfCurrentUser, searchingItemobj }));
     }
     setSearchValue('');
     navigate('/search');

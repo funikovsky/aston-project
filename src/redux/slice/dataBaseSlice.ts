@@ -1,6 +1,6 @@
 import { createSlice, isAnyOf, PayloadAction } from '@reduxjs/toolkit';
 
-import { DataBase } from '../../common/types';
+import { DataBase, SearchingItem } from '../../common/types';
 import { getGifsByIdsThunk } from './asyncThunks/getGifsByIdsThunk';
 
 interface InitialStateInterface {
@@ -13,7 +13,7 @@ interface AddfavoritsIdProps {
 }
 interface HistoryActionProps {
   idOfCurrentUser: string;
-  searchValue: string;
+  searchingItemobj: SearchingItem;
 }
 
 const initialState: InitialStateInterface = {
@@ -47,7 +47,7 @@ export const DataBaseSlice = createSlice({
     },
     addSearchParamToHistory: (state, action: PayloadAction<HistoryActionProps>) => {
       const userId = action.payload.idOfCurrentUser;
-      const searchParam = action.payload.searchValue;
+      const searchParam = action.payload.searchingItemobj;
       const userDataBase = state.dataBase[userId];
       userDataBase.history = [...userDataBase.history, searchParam];
     },

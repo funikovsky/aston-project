@@ -9,8 +9,8 @@ interface Props {
 export const GiftList = ({ dataGif }: Props) => {
   return (
     <MasonryBlock>
-      {dataGif.map((itemGif) => (
-        <GiftItem key={itemGif.id} gif={itemGif} />
+      {dataGif.map((itemGif, index) => (
+        <GiftItem key={index} gif={itemGif} />
       ))}
     </MasonryBlock>
   );

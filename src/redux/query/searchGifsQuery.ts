@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { ApiResponseGifs } from '../../api/types';
 import { GifItem } from '../../common/types';
-
 import { _apiKey } from '../../common/variables';
 import { transformResponseData } from '../../utils/utils';
 

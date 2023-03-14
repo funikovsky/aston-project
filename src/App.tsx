@@ -10,60 +10,72 @@ import { PrivateAccess } from './hoc/PrivateAccess';
 import { ErrorNotFound } from './components/ErrorNotFound/ErrorNotFound';
 import { Spinner } from './components/Spinner/Spinner';
 import { FoundGifsLazy, MainLayoutLazy, TrendingGifLazy } from './lazy/lazy';
-import { ThemeProvider } from './hoc/ThemeProvider';
+import { PrivateAccessForForm } from './hoc/PrivateAccessForForm';
 
 function App() {
   return (
-    <ThemeProvider>
-      <Routes>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Suspense fallback={<Spinner />}>
+            <MainLayoutLazy />
+          </Suspense>
+        }>
         <Route
-          path="/"
+          index
           element={
             <Suspense fallback={<Spinner />}>
-              <MainLayoutLazy />
+              <TrendingGifLazy />
             </Suspense>
-          }>
-          <Route
-            index
-            element={
-              <Suspense fallback={<Spinner />}>
-                <TrendingGifLazy />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/search"
-            element={
-              <Suspense fallback={<Spinner />}>
-                <FoundGifsLazy />
-              </Suspense>
-            }
-          />
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <Suspense fallback={<Spinner />}>
+              <FoundGifsLazy />
+            </Suspense>
+          }
+        />
 
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/registration" element={<SignUp />} />
-          <Route path="/gifs/:id" element={<GifInfoPage />} />
-          <Route
-            path="/favorits"
-            element={
-              <PrivateAccess>
-                <FavoritsPage />
-              </PrivateAccess>
-            }
-          />
-          <Route
-            path="/history"
-            element={
-              <PrivateAccess>
-                <HistoryPage />
-              </PrivateAccess>
-            }>
-            <Route path="/history:searchParam" element={<ListOfGifsFromHistory />} />
-          </Route>
-          <Route path="*" element={<ErrorNotFound />} />
+        <Route
+          path="/login"
+          element={
+            <PrivateAccessForForm>
+              <LoginPage />
+            </PrivateAccessForForm>
+          }
+        />
+        <Route
+          path="/registration"
+          element={
+            <PrivateAccessForForm>
+              <SignUp />
+            </PrivateAccessForForm>
+          }
+        />
+        <Route path="/gifs/:id" element={<GifInfoPage />} />
+        <Route
+          path="/favorits"
+          element={
+            <PrivateAccess>
+              <FavoritsPage />
+            </PrivateAccess>
+          }
+        />
+        <Route
+          path="/history"
+          element={
+            <PrivateAccess>
+              <HistoryPage />
+            </PrivateAccess>
+          }>
+          <Route path="/history:searchParam" element={<ListOfGifsFromHistory />} />
         </Route>
-      </Routes>
-    </ThemeProvider>
+        <Route path="*" element={<ErrorNotFound />} />
+      </Route>
+    </Routes>
   );
 }
 

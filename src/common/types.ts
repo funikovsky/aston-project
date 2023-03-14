@@ -13,9 +13,14 @@ export enum ErrorEnum {
   passwordWrong = 'auth/wrong-password',
 }
 
+export interface SearchingItem {
+  searchValue: string;
+  dataOfSearch: string;
+}
+
 export interface DataBase {
   [key: string]: {
-    history: Array<string>;
+    history: Array<SearchingItem>;
     favoritsId: Array<string>;
     dataFavoritsGif: Array<GifItem>;
   };

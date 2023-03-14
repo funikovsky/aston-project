@@ -1,11 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
 import { apiMain } from './config';
 import { ApiResponseGif, ApiResponseGifs } from './types';
-import { _apiKey, _offSet } from '../common/variables';
+import { _apiKey, _limit, _offSet } from '../common/variables';
 
-const getGifTrendingList = async (offSet: string = _offSet) => {
+const getGifTrendingList = async (offSet: string) => {
   const res: AxiosResponse<ApiResponseGifs> = await apiMain.get(
-    `trending?${_apiKey}&limit=25&offset=${offSet}&rating=g`,
+    `trending?${_apiKey}&limit=${_limit}&offset=${offSet}&rating=g`,
   );
 
   return res.data;

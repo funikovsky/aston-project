@@ -14,7 +14,7 @@ export const SearchParamList = () => {
   const navigate = useNavigate();
   const removeUserHistory = (userId: string) => {
     dispatch(removeHistory(userId));
-    navigate('/history');
+    navigate('/history', { replace: true });
   };
   const { idOfCurrentUser } = useAuth();
   if (idOfCurrentUser) {
@@ -29,7 +29,11 @@ export const SearchParamList = () => {
         <FlexBlock className={styles.paramBlock} jc="center">
           {!searchHistoryOfUser.length && <h2>На данный момент нет записей об истории запросов</h2>}
           {searchHistoryOfUser.map((searchParam, index) => (
-            <SearchParamItem key={index} searchParamName={searchParam} />
+            <SearchParamItem
+              key={index}
+              searchParamName={searchParam.searchValue}
+              dateOfSearch={searchParam.dataOfSearch}
+            />
           ))}
         </FlexBlock>
       </>
