@@ -1,9 +1,9 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode, useContext } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../hooks/useAppHooks';
 import styles from './CustomLink.module.scss';
 
 import cn from 'classnames';
-import { ThemeContext } from '../../hoc/ThemeProvider';
 
 export interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   children: ReactNode;
@@ -12,7 +12,8 @@ export interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,
 }
 
 export const CustomLink = ({ children, href, target, className, ...props }: Props) => {
-  const themeContext = useContext(ThemeContext);
+  const theme = useAppSelector((state) => state.themeSlice.theme);
+
   return (
     <div
       className={cn(
@@ -20,7 +21,7 @@ export const CustomLink = ({ children, href, target, className, ...props }: Prop
         className,
         href,
         {
-          [styles.dark]: themeContext?.theme == 'dark',
+          [styles.dark]: theme === 'dark',
         },
         { ...props },
       )}>

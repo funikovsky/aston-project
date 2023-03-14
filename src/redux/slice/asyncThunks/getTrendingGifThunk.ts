@@ -2,9 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Api } from '../../../api/api';
 import { transformGif } from '../../../utils/utils';
 import { GifItem } from '../../../common/types';
+import { _offSet } from '../../../common/variables';
 
 interface ThunkArg {
-  offSet?: string;
+  offSet: string;
 }
 
 export const getTrendingGifs = createAsyncThunk<

@@ -12,4 +12,5 @@ export const breakpointColumnsObj = {
   500: 1,
 };
 
-export const _offSet: string = '50';
+export const _offSet: string = '25';
+export const _limit: string = '25';

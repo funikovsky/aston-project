@@ -16,11 +16,13 @@ import dataBaseSlice from './slice/dataBaseSlice';
 import { searchGifsApi } from './query/searchGifsQuery';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { loggerMiddleware } from './middleware/loggerMiddleware';
+import themeSlice from './slice/themeSlice';
 
 const rootReducer = combineReducers({
   project: projectSlice,
   authSlice: authSlice,
   dataBase: dataBaseSlice,
+  themeSlice: themeSlice,
   [searchGifsApi.reducerPath]: searchGifsApi.reducer,
 });
 
