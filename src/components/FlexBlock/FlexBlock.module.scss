@@ -1,0 +1,21 @@
+.flex {
+  display: flex;
+}
+
+.center {
+  justify-content: center;
+}
+
+.end {
+  justify-content: flex-end;
+}
+.start {
+  justify-content: flex-start;
+}
+
+.column {
+  flex-direction: column;
+}
+.columngap {
+  column-gap: 20px;
+}
